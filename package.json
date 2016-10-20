@@ -1,0 +1,30 @@
+{
+  "name": "pour-toujours",
+  "version": "0.0.1",
+  "description": "A student project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robhok/hetic-p2019-03.git"
+  },
+  "keywords": [
+    "pour",
+    "toujours"
+  ],
+  "author": "Groupe 3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robhok/hetic-p2019-03/issues"
+  },
+  "homepage": "https://github.com/robhok/hetic-p2019-03#readme",
+  "dependencies": {
+    "autoprefixer": "^6.5.1",
+    "browser-sync": "^2.17.5",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2"
+  }
+}
