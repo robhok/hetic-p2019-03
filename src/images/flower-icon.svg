@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="11" cy="11" r="11"></circle>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.352941176   0 0 0 0 0.282352941  0 0 0 0.26 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.352941176   0 0 0 0 0.282352941  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <polygon id="path-3" points="0 9.30427592 9.32663871 9.30427592 9.32663871 0.0165870871 0 0.0165870871"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PROFIL_SOUVENIRS" transform="translate(-147.000000, -773.000000)">
+            <g id="5_PART2_PUBLICATION-1" transform="translate(0.000000, 767.000000)">
+                <g id="Fleurs" transform="translate(61.000000, 14.000000)">
+                    <g id="paper-fab-create-copy" transform="translate(96.000000, 0.000000)">
+                        <g id="Group">
+                            <g id="Oval-44">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                <use fill="#FF5A48" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            </g>
+                            <g id="Page-1" transform="translate(6.050000, 6.050000)">
+                                <g id="Group-3" transform="translate(0.000000, 0.011104)">
+                                    <mask id="mask-4" fill="white">
+                                        <use xlink:href="#path-3"></use>
+                                    </mask>
+                                    <g id="Clip-2"></g>
+                                    <path d="M6.28925968,7.65560253 C6.46030161,7.79289598 6.6573371,7.90302427 6.87800806,7.97457858 C7.86354194,8.29419154 8.92022903,7.74593154 9.23673065,6.7497925 C9.52841774,5.83082911 9.08770645,4.85329862 8.2440129,4.45620541 C8.61795806,4.22822296 8.91617097,3.86920529 9.05995806,3.4160649 C9.37645968,2.42009201 8.83355645,1.3532294 7.84752903,1.03361644 C7.07762097,0.78406247 6.2669129,1.06443686 5.79716452,1.67320234 C5.70769516,0.966354281 5.22782903,0.340115591 4.51144355,0.107702532 C3.52525161,-0.211938114 2.46922258,0.335989587 2.15274839,1.33229478 C1.97548226,1.88814219 2.06687097,2.46639186 2.35384194,2.92418439 C1.39602903,2.66817834 0.396620968,3.21034625 0.0902645161,4.17383725 C-0.226237097,5.17014244 0.315980645,6.23664507 1.30285806,6.55659032 C1.65785645,6.67148151 2.02165645,6.67281069 2.35773548,6.58231553 C2.31921129,6.66192801 2.28460806,6.74403271 2.25620161,6.83073416 C1.93972742,7.82670706 2.48260323,8.89320968 3.46863065,9.21318262 C4.45482258,9.53282327 5.51150968,8.98453558 5.82801129,7.98856269 C5.86829032,7.86115503 5.96631452,7.35144132 5.97936613,7.22370136" id="Fill-1" fill="#FFFFFF" mask="url(#mask-4)"></path>
+                                </g>
+                                <path d="M4.75833016,9.13016688 C5.50575435,8.89681232 5.97972532,8.20940355 5.99713661,7.44816979 C6.47461726,7.97228298 7.21170435,8.2095697 7.90722371,7.99260839 C8.86457048,7.69370852 9.37668177,6.64974661 9.05061081,5.66022579 C8.86923177,5.10778441 8.46433016,4.68936891 7.97555274,4.47971809 C8.87397532,4.14512415 9.344985,3.13790859 9.02988177,2.18081428" id="Fill-4" fill="#FFFFFF"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
