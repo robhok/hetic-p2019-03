@@ -6,7 +6,8 @@
     declare = require('gulp-declare'),
     concat = require('gulp-concat'),
     merge = require('merge-stream'),
-    babel = require('gulp-babel');
+    babel = require('gulp-babel'),
+    path = require('path');
 
 gulp.task('scss', function() {
   return gulp.src('src/styles/scss/style.scss')
@@ -31,7 +32,7 @@ gulp.task('compile-templates', function() {
     .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
       imports: {
         processPartialName: function(fileName) {
-          return JSON.stringify(path.basename(fileName, 'js'));
+          return JSON.stringify(path.basename(fileName, '.js'));
         }
       }
     }));
