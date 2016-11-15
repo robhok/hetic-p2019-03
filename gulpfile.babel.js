@@ -1,14 +1,19 @@
- var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    sync = require('browser-sync').create(),
-    handlebars = require('gulp-handlebars'),
-    wrap = require('gulp-wrap'),
-    declare = require('gulp-declare'),
-    concat = require('gulp-concat'),
-    merge = require('merge-stream'),
-    babel = require('gulp-babel'),
-    path = require('path');
+import gulp from 'gulp';
+import path from 'path';
+import sync from 'browser-sync';
+import sass from 'gulp-sass'; //SASS
+import handlebars from 'gulp-handlebars'; //HANDLEBARS BEGIN
+import wrap from 'gulp-wrap';
+import declare from 'gulp-declare';
+import concat from 'gulp-concat';
+import merge from 'merge-stream'; //HANDLEBARS END
+import babelify from 'babelify';
+import browserify from 'browserify';
+import buffer from 'vinyl-buffer';
+import source from 'vinyl-source-stream';
+import uglify from 'gulp-uglify';
 
+// sync = sync.create();
 gulp.task('scss', function() {
   return gulp.src('src/styles/scss/style.scss')
     .pipe(sass())
@@ -17,11 +22,14 @@ gulp.task('scss', function() {
 });
 
 gulp.task('babelify', function() {
-  gulp.src('src/js/app/main.js')
-    .pipe(babel({
-      presets: ['es2015']
-    }))
-    .pipe(gulp.dest('dist/scripts'));
+  var bundler = browserify('src/js/app/main.js');
+    bundler.transform(babelify);
+    bundler.bundle()
+      .on('error', function (err) { console.error(err); })
+      .pipe(source('main.js'))
+      .pipe(buffer())
+      .pipe(uglify()) // Use any gulp plugins you want now
+      .pipe(gulp.dest('dist/scripts'));
 });
 
 gulp.task('compile-templates', function() {
@@ -58,7 +66,7 @@ gulp.task('sync', ['scss', 'compile-templates', 'babelify'], function() {
   });
   gulp.watch("src/styles/scss/**/*.scss", ['scss']);
   gulp.watch('src/templates/**/*.hbs', ['compile-templates']);
-  gulp.watch('src/js/app/main.js', ['babelify']);
+  gulp.watch('src/js/app/*.js', ['babelify']);
 });
 
 gulp.task('default', ['sync'], function() {
