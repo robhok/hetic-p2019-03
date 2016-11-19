@@ -1,18 +1,20 @@
-<!-- {{> header}} -->
-<h2 class="title center">{{title}}</h2>
-<a class="test" href="/home">Retour à la HomePage</a>
-<form class="form-login" action="#" method="post">
-  <div class="form-login_group">
-    <label for="email">
-      User
-    </label>
-    <input type="email" name="email" id="email" placeholder="adresse@email.com" value="">
-  </div>
-  <div class="form-login_group">
-    <label for="password">
-      Lock
-    </label>
-    <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
-  </div>
-</form>
+{{> header}}
+<div class="login center">
+  <form class="login__form" action="#" method="post">
+    <div class="login__form--group">
+      <label for="email">
+        <img src="src/images/icons/user-icon.svg" alt="User icon" />
+      </label>
+      <input type="email" name="email" id="email" placeholder="adresse@email.com" value="">
+    </div>
+    <div class="login__form--group">
+      <label for="password">
+        <img src="src/images/icons/lock-icon.svg" alt="Lock icon" />
+      </label>
+      <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
+    </div>
+      <button type="submit" class="btn btn__connexion">Se connecter</button>
+      <a href="#" class="btn btn__create--account">Créer un compte</a>
+  </form>
+</div>
 <!-- {{> footer}} -->
