@@ -1,4 +1,4 @@
-// IMPORT ROUTING FROM PROVIDERS
+// IMPORT
 import {Routing} from './providers';
 
 // NEW ROUTING

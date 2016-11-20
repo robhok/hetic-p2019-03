@@ -12,11 +12,21 @@ import browserify from 'browserify';
 import buffer from 'vinyl-buffer';
 import source from 'vinyl-source-stream';
 import uglify from 'gulp-uglify';
+import pxtorem from 'postcss-pxtorem';
+import postcss from 'gulp-postcss';
+
+var processors = [
+  pxtorem({
+      replace: false,
+      propWhiteList: []
+  })
+];
 
 // sync = sync.create();
 gulp.task('scss', function() {
   return gulp.src('src/styles/scss/style.scss')
     .pipe(sass())
+    .pipe(postcss(processors))
     .pipe(gulp.dest('dist/styles'))
     .pipe(sync.stream());
 });
