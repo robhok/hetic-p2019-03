@@ -3,10 +3,27 @@
 */
 
 input {
-  width: 200px;
+  width: 12rem;
 }
 
-// FORM FOR DEVICES 0 --> 760PX
+
+/*
+*** MEDIA QUERIES
+*/
+
+// FORM FOR 0PX --> 760PX DEVICES
 @media screen and (max-width: 760px) {
 
+}
+
+// FOR 760PX+ DEVICES
+@media screen and (min-width: 760px) {
+  input {
+    width: 20rem;
+    height: 3rem !important;
+
+    background: #F9F9F9;
+
+    padding-left: 14px;
+  }
 }

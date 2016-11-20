@@ -1,7 +1,37 @@
+/*
+*** GENERAL
+*/
+
 header {
   .header__logo {
-    margin-bottom: 14px;
     position: absolute;
-      left: 0; right: 0;
+  }
+}
+
+
+/*
+*** MEDIA QUERIES
+*/
+
+// HEADER FOR 0px --> 760PX DEVICES
+@media screen and (max-width: 760px) {
+  header {
+
+    text-align: center;
+
+    .header__logo {
+      margin-bottom: 14px;
+
+      position: absolute;
+        left: 0; right: 0;
+    }
+  }
+}
+
+// HEADER FOR 760PX+ DEVICES
+@media screen and (min-width: 760px) {
+  header {
+    .header__logo {
+    }
   }
 }

@@ -1,29 +1,15 @@
 .login {
 
+  /*
+  *** GENERAL
+  */
+
   width: 100%;
   height: 100%;
 
   display: flex;
   align-items: center;
 
-  // LOGIN FORM
-  .login__form {
-
-    margin: auto;
-
-    &--group {
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-
-      margin-bottom: 40px;
-      padding-bottom: 5px;
-
-      label {
-        margin-right: 10px;
-        position: relative;
-          top: 1px;
-      }
-    }
-  }
 
   // BUTTON SUBMIT
   .btn__connexion {
@@ -39,12 +25,89 @@
     margin-bottom: 30px;
 
     font-size: 18px;
+
+    transition: background 300ms;
+
+    &:hover {
+      background: $color_red_hover;
+
+      transition: background 300ms;
+    }
   }
 
   // BUTTON CREATE ACCOUNT
   .btn__create--account {
     padding-bottom: 3px;
     border-bottom: 1px solid $color_black;
+
+    transition: border 300ms;
+
+    &:hover {
+      border-bottom: 1px solid $color_red;
+
+      transition: border 300ms;
+    }
+  }
+
+  // LOGIN FORM
+  .login__form {
+    margin: auto;
+    position: relative;
+  }
+
+
+  /*
+  *** MEDIA QUERIES
+  */
+
+  // GENRERAL FOR 0px --> 760PX DEVICES
+  @media screen and (max-width: 760px) {
+    .login__form {
+
+      &--group {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+
+        margin-bottom: 40px;
+        padding-bottom: 5px;
+
+        label {
+          margin-right: 10px;
+          position: relative;
+            top: 1px;
+        }
+      }
+    }
+  }
+
+  // FOR 760PX+ DEVICES
+  @media screen and (min-width: 760px) {
+    .login__form {
+
+      padding-top: 100px;
+
+      &--group {
+        margin-bottom: 3rem;
+
+        label span {
+          margin-bottom: 0.8rem;
+
+          font-weight: 600;
+        }
+      }
+
+      &--title {
+        width: 50rem;
+
+        color: #F3F3F3;
+
+        font-family: 'Circular Air';
+        font-weight: 600;
+        font-size: 65px;
+
+        position: absolute;
+          top: 0px; right: 0;
+      }
+    }
   }
 
 }
