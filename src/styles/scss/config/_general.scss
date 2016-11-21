@@ -16,6 +16,14 @@ a {
   text-decoration: none;
 }
 
+render-view {
+  /* GENERAL STYLE OF PAGES */
+}
+
+.unactive-outlet {
+  display: none !important;
+}
+
 .text-center {
   text-align: center;
 }
