@@ -30,25 +30,34 @@ export class Routing {
     else return null;
   }
 
+  removeAllViews() {
+    for (let item of this.render.views) {
+      this.render.container.removeChild(item);
+    }
+    this.render.views = [];
+  }
+
   /**
-  * Function push()
+  * Function pushPage()
   * Push a new page, setting the old one unactive
   * @param page (the name of the page)
   * @param infos (infos to push into the template like the title of the page)
   */
 
-  pushPage(page, infos = {}) {
+  pushPage(page, infos = {}, animation = 'fade', speed = 500) {
     this.currentView++;
     let newDiv = document.createElement("render-view");
     let currentOutlet = this.getCurrentView();
     this.render.views.push(newDiv);
-    if (currentOutlet) currentOutlet.classList.add('unactive-outlet');
     newDiv.className = 'page-'+page;
     this.render.container.append(newDiv);
     infos.previousButton = this.popPageButton;
     this.goToPage(page, infos, newDiv, () => {
       this.removeLinks();
       this.addEventPrevious();
+      this.doAnimation(animation, speed, currentOutlet, newDiv, () => {
+        if (currentOutlet) currentOutlet.classList.add('unactive-outlet');
+      });
     });
   }
 
@@ -57,12 +66,34 @@ export class Routing {
   * Remove current page, go to previous one
   */
 
-  popPage() {
+  popPage(animation = 'fade', speed = 500) {
+    this.currentView--;
     let lastRender = this.getCurrentView();
-    this.render.container.removeChild(lastRender);
-    this.render.views.pop();
-    let newLastRender = this.getCurrentView();
-    newLastRender.classList.remove('unactive-outlet');
+    let newRender = this.getCurrentView(this.render.views.length-2);
+    if (newRender === null) return;
+    newRender.classList.remove('unactive-outlet');
+    this.doAnimation(animation, speed, lastRender, newRender, () => {
+      this.render.container.removeChild(lastRender);
+      this.render.views.pop();
+    });
+  }
+
+  /**
+  * Function navToRoot()
+  * Remove all views, and insert the page chosen
+  * @param page (the name of the page)
+  * @param infos (infos to push into the template like the title of the page)
+  */
+
+  navToRoot(page, infos) {
+    this.currentView = 0;
+    this.removeAllViews();
+    this.render.views = [document.createElement("render-view")];
+    this.render.views[0].className = 'page-'+page;
+    this.render.container.append(this.render.views[0]);
+    this.goToPage(page, infos, this.render.views[0], () => {
+      this.removeLinks();
+    });
   }
 
   /**
@@ -94,8 +125,14 @@ export class Routing {
     if (callback) callback.call(this);
   }
 
-  doAnimation(name) {
-    console.log(name);
+  doAnimation(name, speed, oldView, newView, callback) {
+    let self = this;
+    switch(name) {
+      case "fade":
+        oldView.style.opacity = 0;
+        newView.style.opacity = 1;
+    }
+    setTimeout(() => callback.call(self), speed);
   }
 
   /**

@@ -8,6 +8,8 @@ html, body {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: 'Avenir';
   font-size: 13px;
 }
@@ -16,8 +18,23 @@ a {
   text-decoration: none;
 }
 
+render-outlet {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: block;
+  box-sizing: border-box;
+}
+
 render-view {
   /* GENERAL STYLE OF PAGES */
+  transition: opacity .5s ease;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .unactive-outlet {
@@ -54,7 +71,7 @@ render-view {
 
 // GENRERAL FOR 0px --> 760PX DEVICES
 @media screen and (max-width: 760px) {
-  body {
+  render-outlet {
     padding: 14px 8px;
   }
 
@@ -83,7 +100,7 @@ render-view {
 
 // GENRERAL FOR 760PX+ DEVICES
 @media screen and (min-width: 760px) {
-  body {
+  render-outlet {
     padding: 14px;
   }
 
