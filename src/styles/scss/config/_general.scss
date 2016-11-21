@@ -32,9 +32,11 @@ render-outlet {
 render-view {
   /* GENERAL STYLE OF PAGES */
   transition: opacity .5s ease;
-  position: absolute;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+    top: 0; left: 0;
 }
 
 .unactive-outlet {
@@ -71,7 +73,7 @@ render-view {
 
 // GENRERAL FOR 0px --> 760PX DEVICES
 @media screen and (max-width: 760px) {
-  render-outlet {
+  render-view {
     padding: 14px 8px;
   }
 
@@ -100,7 +102,7 @@ render-view {
 
 // GENRERAL FOR 760PX+ DEVICES
 @media screen and (min-width: 760px) {
-  render-outlet {
+  render-view {
     padding: 14px;
   }
 
