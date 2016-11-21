@@ -3,6 +3,6 @@
 export class LoginPage {
   constructor(navParams) {
     Object.assign(this, navParams);
-    console.log(this);
+    this.title = "Login";
   }
 }
