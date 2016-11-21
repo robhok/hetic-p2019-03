@@ -1,3 +1,4 @@
+import {NotFoundPage} from '../pages/404'
 import {HomePage} from '../pages/home';
 import {LoginPage} from '../pages/login';
 import {ProfilePage} from '../pages/profile';
@@ -10,12 +11,14 @@ let render = {
 
 // ROUTING CLASS
 export class Routing {
-  constructor() {
+  constructor(device = "desktop") {
     this.render = render;
+    this.device = device;
+    this.defaultAnimations = {
+      "desktop": "fade",
+      "mobile": "slide"
+    }
     this.currentView = 0;
-    this.homePage = HomePage;
-    this.LoginPage = LoginPage;
-    this.profilePage = ProfilePage;
     this.popPageButton = true; //Set to false if you don't want to have a previous button when a page is push
   }
 
@@ -44,12 +47,13 @@ export class Routing {
   * @param infos (infos to push into the template like the title of the page)
   */
 
-  pushPage(page, infos = {}, animation = 'fade', speed = 500) {
+  pushPage(page, infos = {}, animation = this.defaultAnimations[this.device], speed = 500) {
     this.currentView++;
     let newDiv = document.createElement("render-view");
     let currentOutlet = this.getCurrentView();
     this.render.views.push(newDiv);
     newDiv.className = 'page-'+page;
+    this.prepareAnimation(animation, currentOutlet, newDiv)
     this.render.container.append(newDiv);
     infos.previousButton = this.popPageButton;
     this.goToPage(page, infos, newDiv, () => {
@@ -66,7 +70,7 @@ export class Routing {
   * Remove current page, go to previous one
   */
 
-  popPage(animation = 'fade', speed = 500) {
+  popPage(animation = this.defaultAnimations[this.device], speed = 500) {
     this.currentView--;
     let lastRender = this.getCurrentView();
     let newRender = this.getCurrentView(this.render.views.length-2);
@@ -112,27 +116,51 @@ export class Routing {
     let pages = {
       "home": HomePage,
       "login": LoginPage,
-      "profile": ProfilePage
+      "profile": ProfilePage,
+      "404": NotFoundPage
     };
-    if (pages[page]) {
-      this.page = page;
-      this.currentNav = new pages[page](infos); //Including infos manually added to component
-    } else {
-      this.page = "404";
-      this.currentNav = {previousButton: this.popPageButton}
-    }
-    outlet.innerHTML = templates[page](this.currentNav); //Include component to template
+    this.page = pages[page] ? page : '404';
+    this.currentNav = new pages[this.page](infos); //Including infos manually added to component
+    outlet.innerHTML = templates[this.page](this.currentNav); //Include component to template
     if (callback) callback.call(this);
   }
 
-  doAnimation(name, speed, oldView, newView, callback) {
+  prepareAnimation(name, oldView, newView) {
+    switch(name) {
+      case "fade":
+        break;
+      case "slide":
+        newView.style.transform = "translateX(100%)";
+        break;
+    }
+  }
+
+  /**
+  * Function doAnimation()
+  * All link <a href="/"> are remove and replace by the function pushPage()
+  * @param
+  * @param
+  * @param
+  * @param
+  * @param
+  */
+
+  doAnimation(name, speed = 500, oldView, newView, callback) {
     let self = this;
     switch(name) {
       case "fade":
         oldView.style.opacity = 0;
         newView.style.opacity = 1;
+        break;
+      case "slide":
+        let regex = new RegExp(/translateX\((-?\d+(?:\.\d*)?)%\)/, 'i');
+        setTimeout(() => {
+          oldView.style.transform = "translateX("+ parseInt(newView.style.transform.match(regex)[1]) * (-1) +"%)";
+          newView.style.transform = "translateX(0%)";
+        }, 50);
+        break;
     }
-    setTimeout(() => callback.call(self), speed);
+    if (callback) setTimeout(() => callback.call(self), speed);
   }
 
   /**
@@ -146,7 +174,8 @@ export class Routing {
     if (currentRender === null) return;
     let links = currentRender.getElementsByTagName('a');
     for (let link of links) {
-      if (link.getAttribute('href')) {
+      let href = link.getAttribute('href');
+      if (href && href.indexOf('http') == -1 && href.indexOf('www') == -1) {
         link.onclick = function(e) {
           e.preventDefault();
           let splittedURL = this.href.split('/');

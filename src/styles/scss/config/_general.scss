@@ -27,16 +27,17 @@ render-outlet {
   margin: 0;
   display: block;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 render-view {
   /* GENERAL STYLE OF PAGES */
-  transition: opacity .5s ease;
+  transition: all .5s ease;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
   position: absolute;
-    top: 0; left: 0;
+  top: 0; left: 0;
 }
 
 .unactive-outlet {

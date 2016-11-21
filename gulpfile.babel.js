@@ -32,7 +32,7 @@ gulp.task('scss', function() {
 });
 
 gulp.task('babelify', function() {
-  var bundler = browserify('src/js/app/main.js');
+  var bundler = browserify('src/js/app/app.js');
     bundler.transform(babelify);
     bundler.bundle()
       .on('error', function (err) { console.error(err); })
@@ -76,7 +76,7 @@ gulp.task('sync', ['scss', 'compile-templates', 'babelify'], function() {
   });
   gulp.watch("src/styles/scss/**/*.scss", ['scss']);
   gulp.watch('src/templates/**/*.hbs', ['compile-templates']);
-  gulp.watch('src/js/app/*.js', ['babelify']);
+  gulp.watch('src/js/**/*.js', ['babelify']);
 });
 
 gulp.task('default', ['sync'], function() {
