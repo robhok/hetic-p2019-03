@@ -33,6 +33,11 @@ export class Routing {
     else return null;
   }
 
+  /**
+  * Function getCurrentView()
+  * Map through the views, delete them and reset the views variable
+  */
+
   removeAllViews() {
     for (let item of this.render.views) {
       this.render.container.removeChild(item);
@@ -125,6 +130,13 @@ export class Routing {
     if (callback) callback.call(this);
   }
 
+  /**
+  * Set style to outlets to prepare the animation
+  * @param name (name of the animation)
+  * @param oldView (outlet that will be removed)
+  * @param newView (outlet that will appear)
+  */
+
   prepareAnimation(name, oldView, newView) {
     switch(name) {
       case "fade":
@@ -138,11 +150,11 @@ export class Routing {
   /**
   * Function doAnimation()
   * All link <a href="/"> are remove and replace by the function pushPage()
-  * @param
-  * @param
-  * @param
-  * @param
-  * @param
+  * @param name (name of the animation)
+  * @param speed (duration of the animation, the function wait until the animation is over before calling callback)
+  * @param oldView (outlet that will be removed)
+  * @param newView (outlet that will appear)
+  * @param callback (callback used at the end of the animation)
   */
 
   doAnimation(name, speed = 500, oldView, newView, callback) {
@@ -178,9 +190,14 @@ export class Routing {
       if (href && href.indexOf('http') == -1 && href.indexOf('www') == -1) {
         link.onclick = function(e) {
           e.preventDefault();
-          let splittedURL = this.href.split('/');
-          let page = splittedURL[splittedURL.length-1];
-          self.pushPage(page);
+          if (href.indexOf('/') != -1) {
+            let splittedURL = this.href.split('/');
+            let page = splittedURL[splittedURL.length-1];
+            self.pushPage(page, {rout: self.currentNav.rout});
+          } else {
+            let page = href;
+            self.navToRoot(page, {rout: self.currentNav.rout});
+          }
         }
       }
     }
