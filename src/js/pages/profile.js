@@ -32,20 +32,18 @@ export class ProfilePage {
     profile.tabs.addEventListener('click', function(e) {
       if (!e.target.classList.contains('selected')) {
         document.querySelector('.selected').classList.remove('selected');
-        setTimeout(function() {
-          e.target.classList.add('selected');
+        e.target.classList.add('selected');
 
-          // DISPLAY OR HIDE TABS ACCORDING TO THE SELECTED TAB
-          if (profile.tabs.remember.classList.contains('selected')) {
-            profile.content.flower.style.display = 'none';
-            profile.content.remember.style.display = 'block';
-          }
+        // DISPLAY OR HIDE TABS ACCORDING TO THE SELECTED TAB
+        if (profile.tabs.remember.classList.contains('selected')) {
+          profile.content.flower.style.display = 'none';
+          profile.content.remember.style.display = 'block';
+        }
 
-          else if (profile.tabs.flower.classList.contains('selected')) {
-            profile.content.remember.style.display = 'none';
-            profile.content.flower.style.display = 'block';
-          }
-        }, 1);
+        else if (profile.tabs.flower.classList.contains('selected')) {
+          profile.content.remember.style.display = 'none';
+          profile.content.flower.style.display = 'block';
+        }
       }
     });
   }
