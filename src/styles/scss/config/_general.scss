@@ -27,7 +27,6 @@ render-outlet {
   margin: 0;
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 render-view {
@@ -67,6 +66,7 @@ render-view {
 .pull-left {
   float: left;
 }
+
 
 /*
 *** MEDIA QUERIES

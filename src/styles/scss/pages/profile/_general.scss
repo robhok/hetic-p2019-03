@@ -1,0 +1,45 @@
+.profile {
+
+  width: 100%;
+  padding-top: 60px;
+
+  /*
+  *** GENERAL
+  */
+
+  &__container--image {
+    width: 135px;
+    height: 150px;
+    margin: auto;
+  }
+
+  &--image {
+    width: 100%;
+  }
+
+  &__infos {
+
+    width: 135px;
+    margin: auto;
+    margin-bottom: 23px;
+
+    &--name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    &--date {
+      padding-left: 10px;
+      border-left: solid 1px #E7E7E8;
+
+      p {
+        margin-bottom: 10px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+@import 'tabs-content';
+@import 'tabs-actions';

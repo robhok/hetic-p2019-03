@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="43px" height="43px" viewBox="0 0 43 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>ADD FLOWER</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <polygon id="path-2" points="0 34.3412366 34.4237756 34.3412366 34.4237756 0.0612214307 0 0.0612214307"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PROFIL_SOUVENIRS" transform="translate(-308.000000, -300.000000)">
+            <g id="ADD-FLOWER" transform="translate(302.000000, 294.000000)">
+                <g id="paper-fab-create-copy">
+                    <g id="Page-1" filter="url(#filter-1)" transform="translate(10.080000, 10.080000)">
+                        <g id="Group-3" transform="translate(0.000000, 0.040985)">
+                            <mask id="mask-3" fill="white">
+                                <use xlink:href="#path-2"></use>
+                            </mask>
+                            <g id="Clip-2"></g>
+                            <path d="M23.2130857,28.256133 C23.844386,28.7628706 24.571626,29.1693441 25.3861025,29.4334446 C29.0236184,30.6131069 32.9237544,28.5895291 34.0919331,24.9128705 C35.1685237,21.5210602 33.5418984,17.913084 30.4279022,16.4474491 C31.8080998,15.6059866 32.9087765,14.280885 33.4394816,12.608385 C34.6076603,8.9323396 32.6038538,4.99464668 28.9645162,3.81498432 C26.1228556,2.8939033 23.1306058,3.92873967 21.3968072,6.17563772 C21.066584,3.5667258 19.2954417,1.25533573 16.651328,0.397520254 C13.0113832,-0.78224431 9.11367607,1.24010702 7.94559859,4.9173789 C7.29132543,6.96896117 7.62863284,9.10322813 8.6878166,10.7928987 C5.15261625,9.8480037 1.46389194,11.8490962 0.333158123,15.4052539 C-0.835020557,19.0825257 1.16625584,23.01889 4.80873067,24.1997788 C6.11899745,24.6238318 7.46175018,24.6287377 8.70218733,24.2947282 C8.55999804,24.5885707 8.43228067,24.8916116 8.32743504,25.2116188 C7.15935757,28.8876642 9.16306282,32.8240285 12.8024004,34.0050195 C16.4423452,35.1847841 20.3424812,33.1611041 21.5106599,29.4850587 C21.6593261,29.0148086 22.0211245,27.1335016 22.0692968,26.662025" id="Fill-1" fill="#FFFFFF" mask="url(#mask-3)"></path>
+                        </g>
+                        <path d="M17.562564,33.698616 C20.3212388,32.8373255 22.0706226,30.3001622 22.134886,27.4905176 C23.8972237,29.4249717 26.6177452,30.3007754 29.1848439,29.499991 C32.7183238,28.3967787 34.60848,24.5436102 33.4049817,20.8913788 C32.7355282,18.8523679 31.2410731,17.3080343 29.4370401,16.5342322 C32.7530362,15.2992764 34.4914901,11.5817353 33.3284727,8.04918725" id="Fill-4" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+                <text id="+" font-family=".SFNSDisplay-Regular, .SF NS Display" font-size="24" font-weight="normal" fill="#FF5A48">
+                    <tspan x="21.16" y="33.36">+</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

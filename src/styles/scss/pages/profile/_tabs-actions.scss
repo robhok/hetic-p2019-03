@@ -1,45 +1,4 @@
 .profile {
-
-  width: 100%;
-  padding-top: 60px;
-
-  /*
-  *** GENERAL
-  */
-
-  &__container--image {
-    width: 135px;
-    height: 150px;
-    margin: auto;
-    overflow: hidden;
-  }
-
-  &--image {
-    width: 100%;
-  }
-
-  &__infos {
-
-    width: 135px;
-    margin: auto;
-
-    &--name {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 25px;
-    }
-
-    &--date {
-      padding-left: 10px;
-      border-left: solid 1px #E7E7E8;
-
-      p {
-        margin-bottom: 10px;
-        font-weight: 300;
-      }
-    }
-  }
-
   // ACTIONS
 
   &__action {
@@ -49,6 +8,7 @@
     margin-top: 10px;
     border-top: solid 1px #E7E7E8;
     border-bottom: solid 1px #E7E7E8;
+    display: flex;
 
     span {
       font-size: 20px;
@@ -59,13 +19,44 @@
     &--flower {
       width: 50%;
       height: 100%;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .action {
+        font-weight: 800;
+        font-size: 28px;
+      }
+
+      .content {
+        letter-spacing: 0.5px;
+      }
     }
 
+    &--flower {
+
+      .content {
+        margin-right: 22px;
+      }
+    }
 
     &--remember {
       border-right: solid 1px #E7E7E8;
-      display: inline-block;
+
+      .action {
+        margin-right: 32px;
+      }
+
+      .content {
+        margin-left: 12px;
+      }
+
+      button {
+        width: 34px;
+        height: 34px;
+        box-shadow: 0 0 4px 0 rgba(35, 35, 35, 0.3);
+        border-radius: 8px;
+      }
     }
   }
 
@@ -85,6 +76,7 @@
       text-align: center;
       line-height: 35px;
       cursor: pointer;
+      transition: 100ms all;
     }
 
     &--remember {
@@ -98,11 +90,5 @@
     .selected {
       border-bottom: inset 2px $color_white;
     }
-  }
-
-  // TABS CONTENT
-
-  &__content {
-
   }
 }

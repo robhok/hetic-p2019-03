@@ -28,14 +28,28 @@
 
     <!-- ADD A REMEMBER -->
     <div class="profile__action--remember">
-      <span>12</span><br>
-      souvenirs
+      <div class="action">
+      <button class="btn" type="button" name="button">
+        +
+      </button>
+      </div>
+      <div class="content">
+        <span>12</span><br>
+        souvenirs
+      </div>
     </div>
 
     <!-- ADD A FLOWER -->
     <div class="profile__action--flower pull-right">
-      <span>43</span><br>
-      fleurs reçues
+      <div class="content">
+        <span>43</span><br>
+        fleurs reçues
+      </div>
+      <div class="action">
+        <button class="btn" type="button" name="button">
+          <img src="src/images/icons/flower-shadow-icon.svg" alt="Fleur icon" />
+        </button>
+      </div>
     </div>
 
   </div>
@@ -59,13 +73,39 @@
   <div class="profile__content">
 
     <!-- SEE REMEMEBERS -->
-    <div class="profile_content--remember">
+    <div class="profile__content--remember">
+
+      <!-- A POST -->
+      <div class="profile__remember">
+
+        <!-- PROFILE OF POSTER -->
+        <div class="profile__remember--profile">
+          <img width="41" src="src/images/profiles/lea.png" alt="Profile Lea" />
+          <span class="name">Léa Derian</span><br>
+          <span class="date">22 avril</span>
+        </div>
+
+        <!-- PICTURE -->
+        <div class="profile__remember--picture">
+          <img src="src/images/profiles/lea-friend.jpg" alt="Amis Léa" />
+        </div>
+
+        <!-- ADD A FLOWER -->
+        <div class="profile__remember--action">
+          <div class="add-flower">
+            <button type="button" class="btn" name="button">
+              <img src="src/images/icons/flower-white-icon.svg" alt="Fleur blanche" />
+            </button>
+          </div>
+        </div>
+      </div>
 
     </div>
 
-    <!-- SEE FLOWERS -->
-    <div class="profile_content--flower">
 
+    <!-- SEE FLOWERS -->
+    <div class="profile__content--flower">
+      Fleurs
     </div>
 
   </div>

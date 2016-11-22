@@ -1,15 +1,18 @@
 // CONFIG
-@import 'config/fonts';
-@import 'config/colors';
-@import 'config/general';
+  @import 'config/fonts';
+  @import 'config/colors';
+  @import 'config/general';
 
 // PARTIALS
-@import 'partials/header';
+  @import 'partials/header';
 
 // COMPONENTS
-@import 'components/forms';
-@import 'components/button';
+  @import 'components/forms';
+  @import 'components/button';
 
 // PAGES
-@import 'pages/login';
-@import 'pages/profile';
+  // LOGIN
+    @import 'pages/login';
+  // PROFILE
+    @import 'pages/profile/general';
+    

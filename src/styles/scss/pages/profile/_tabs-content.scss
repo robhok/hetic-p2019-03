@@ -1,0 +1,73 @@
+.profile {
+  // TABS CONTENT
+
+  &__content {
+    width: 100%;
+
+    &--remember {
+
+      .profile__remember {
+
+        border-top: solid 3px #E0E0E0;
+
+        // PROFILE OF THE POSTER
+        &--profile {
+          padding: 12px;
+          line-height: 18px;
+          background: $color_grey;
+
+          img {
+            float: left;
+            margin-right: 15px;
+          }
+
+          .name {
+            font-size: 16px;
+          }
+
+          .date {
+            color: rgba(0,0,0,0.54);
+          }
+        }
+
+        // PICTURE
+        &--picture {
+          width: 100%;
+          max-height: 300px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        // ACTIONS
+        &--action {
+
+          .add-flower {
+            width: 50px;
+            height: 50px;
+            background: $color_red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            button {
+              width: 40px;
+              height: 30px;
+
+              img {
+                position: relative;
+                  right: 2px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &--flower {
+      display: none;
+    }
+  }
+}

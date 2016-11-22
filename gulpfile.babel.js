@@ -14,6 +14,7 @@ import source from 'vinyl-source-stream';
 import uglify from 'gulp-uglify';
 import pxtorem from 'postcss-pxtorem';
 import postcss from 'gulp-postcss';
+import autoprefixer from 'gulp-autoprefixer';
 
 var processors = [
   pxtorem({
@@ -27,6 +28,10 @@ gulp.task('scss', function() {
   return gulp.src('src/styles/scss/style.scss')
     .pipe(sass())
     .pipe(postcss(processors))
+    .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
     .pipe(gulp.dest('dist/styles'))
     .pipe(sync.stream());
 });
