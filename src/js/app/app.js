@@ -15,7 +15,7 @@ export class MyApp {
   constructor(device) {
     this.device = device; //"mobile" for slides, desktop for fade
     this.cache = new CacheService();
-    this.cache.clearCache();
+    // this.cache.clearCache();
     this.rout = new Routing(this.device);
     this.rout.navToRoot('home', {rout: this.rout, cache: this.cache}); //YOU HAVE TO PASS THE ROUTER AND THE CACHE FOR THE FIRST VIEW (preferably using navToRoot)
   }

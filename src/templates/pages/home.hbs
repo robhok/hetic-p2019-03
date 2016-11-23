@@ -1,13 +1,27 @@
 {{> header}}
 <div class="home">
-  <div class="home__form-group">
-    <input type="text" name="search" id="search" placeholder="Rechercher un proche" value="">
+
+  <!-- ADD A CLOSE -->
+  <div class="home__close">
+    <div class="home__close--container">
+      <button type="button" class="btn" name="button">
+        Ajouter un proche 
+        <span class="home__close--plus">+</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <div class="home__form">
+    <input class="home__form--search" type="text" name="search" id="search" placeholder="Rechercher un proche" value="">
     <label for="search">
-      <img class="inline" src="src/images/icons/lock-icon.svg" alt="Lock icon" />
+      <img class="inline" src="src/images/icons/search-icon.svg" alt="Recherche icone" />
     </label>
   </div>
-  <div class="home__canvas-container">
+
+  <!-- CANVAS -->
+  <div class="home__canvas">
     <canvas id="home-canvas"></canvas>
   </div>
+
 </div>
-<!-- {{> footer}} -->
