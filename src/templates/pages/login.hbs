@@ -1,7 +1,13 @@
 {{> header}}
 <div class="login text-center">
+
+  <!-- FORM CONNEXION -->
   <form class="login__form" action="#" method="post">
+
+    <!-- TITLE FOR DESKTOP -->
     <h1 class="desktop--block text-right login__form--title">Connectez-vous</h1>
+
+    <!-- EMAIL GROUP -->
     <div class="login__form--group">
       <label for="email">
         <img class="mobile--inline" src="src/images/icons/user-icon.svg" alt="User icon" />
@@ -9,6 +15,8 @@
       </label>
       <input type="email" name="email" id="email" placeholder="adresse@email.com" value="">
     </div>
+
+    <!-- PASSWORD GROUP -->
     <div class="login__form--group">
       <label for="password">
         <img class="mobile--inline" src="src/images/icons/lock-icon.svg" alt="Lock icon" />
@@ -16,7 +24,11 @@
       </label>
       <input type="password" name="password" id="password" placeholder="mot de passe" value="">
     </div>
-      <button type="submit" class="btn btn__connexion">Se connecter</button>
-      <a href="/profile" class="btn btn__create--account">Créer un compte</a>
+
+    <!-- BUTTONS -->
+    <button type="submit" class="btn btn__connexion">Se connecter</button>
+    <a href="" class="btn btn__create--account">Créer un compte</a>
+    
   </form>
+
 </div>
