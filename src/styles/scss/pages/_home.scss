@@ -1,0 +1,21 @@
+.home {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .home__form-group {
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+  }
+
+  .home__canvas-container {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 20%;
+  }
+}

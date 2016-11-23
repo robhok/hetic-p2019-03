@@ -1,5 +1,5 @@
 // IMPORT
-import {Routing} from './providers';
+import {Routing, CacheService} from './providers';
 
 function getDevice () {
   let device = "desktop"; //initiate as false
@@ -14,8 +14,16 @@ function getDevice () {
 export class MyApp {
   constructor(device) {
     this.device = device; //"mobile" for slides, desktop for fade
+    this.cache = new CacheService();
+    // this.cache.clearCache();
     this.rout = new Routing(this.device);
-    this.rout.navToRoot('home', {rout: this.rout}); //YOU HAVE TO PASS THE ROUTER FOR THE FIRST VIEW (preferably using navToRoot)
+    this.user = this.getUser();
+    let page = this.user ? 'home' : 'login';
+    this.rout.navToRoot(page, {rout: this.rout, cache: this.cache}); //YOU HAVE TO PASS THE ROUTER AND THE CACHE FOR THE FIRST VIEW (preferably using navToRoot)
+  }
+
+  getUser() {
+    return this.cache.getCache('user');
   }
 }
 

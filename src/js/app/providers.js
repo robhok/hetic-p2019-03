@@ -1,3 +1,4 @@
+import {database} from './config';
 import {NotFoundPage} from '../pages/404'
 import {HomePage} from '../pages/home';
 import {LoginPage} from '../pages/login';
@@ -34,7 +35,7 @@ export class Routing {
   }
 
   /**
-  * Function getCurrentView()
+  * Function removeAllViews()
   * Map through the views, delete them and reset the views variable
   */
 
@@ -50,6 +51,8 @@ export class Routing {
   * Push a new page, setting the old one unactive
   * @param page (the name of the page)
   * @param infos (infos to push into the template like the title of the page)
+  * @param animation (animation name)
+  * @param speed (duration of the animation)
   */
 
   pushPage(page, infos = {}, animation = this.defaultAnimations[this.device], speed = 500) {
@@ -73,6 +76,8 @@ export class Routing {
   /**
   * Function popPage()
   * Remove current page, go to previous one
+  * @param animation (animation name)
+  * @param speed (duration of the animation)
   */
 
   popPage(animation = this.defaultAnimations[this.device], speed = 500) {
@@ -193,10 +198,10 @@ export class Routing {
           if (href.indexOf('/') != -1) {
             let splittedURL = this.href.split('/');
             let page = splittedURL[splittedURL.length-1];
-            self.pushPage(page, {rout: self.currentNav.rout});
+            self.pushPage(page, {rout: self.currentNav.rout || {}, cache: self.currentNav.cache || {}});
           } else {
             let page = href;
-            self.navToRoot(page, {rout: self.currentNav.rout});
+            self.navToRoot(page, {rout: self.currentNav.rout || {}, cache: self.currentNav.cache || {}});
           }
         }
       }
@@ -216,5 +221,52 @@ export class Routing {
     if (previousButton && previousButton[0]) previousButton[0].onclick = function(e) {
       self.popPage();
     }
+  }
+}
+
+export class LogService {
+  constructor()  {
+    this.users = database["users"];
+  }
+
+  login(email, password) {
+    let user = this.users.filter((user, key) => {
+      if (user["email"] == email && user["password"] == password) {
+        user.id = key;
+        return user;
+      };
+    });
+    return user[0] || null;
+  }
+}
+
+export class CacheService {
+  constructor() {
+    this.storage = localStorage;
+  }
+
+  /**
+  * Get cached item with the key
+  * @param key (key used to cache the item)
+  */
+  getCache(key) {
+    let item = this.storage.getItem(key);
+    return item;
+  }
+
+  /**
+  * Set item in the cache with the key wanted
+  * @param key (key used to cache the item)
+  * @param item (object to stock in the cache)
+  */
+  setCache(key, item) {
+    this.storage.setItem(key, item);
+  }
+
+  /**
+  * Clear the cache
+  */
+  clearCache() {
+    this.storage.clear();
   }
 }

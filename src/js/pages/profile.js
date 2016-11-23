@@ -6,10 +6,10 @@ export class ProfilePage {
 
     Object.assign(this, navParams);
 
-    // PROBLEM LOAD DOM NEED TO FIX IT
-    setTimeout(function(){
+    // LAUNCH FUNCTIONS THAT NEED DOM TO BE LOAD
+    setTimeout(() => {
       self.tabs();
-    }, 500);
+    }, 100);
 
   }
 
@@ -29,23 +29,21 @@ export class ProfilePage {
     profile.content.flower = profile.content.querySelector('.profile__content--flower');
 
     // SWITCH SELECTED CLASS BETWEEN TAB
-    profile.tabs.addEventListener('click', function(e) {
+    profile.tabs.addEventListener('click', (e) => {
       if (!e.target.classList.contains('selected')) {
         document.querySelector('.selected').classList.remove('selected');
-        setTimeout(function() {
-          e.target.classList.add('selected');
+        e.target.classList.add('selected');
 
-          // DISPLAY OR HIDE TABS ACCORDING TO THE SELECTED TAB
-          if (profile.tabs.remember.classList.contains('selected')) {
-            profile.content.flower.style.display = 'none';
-            profile.content.remember.style.display = 'block';
-          }
+        // DISPLAY OR HIDE TABS ACCORDING TO THE SELECTED TAB
+        if (profile.tabs.remember.classList.contains('selected')) {
+          profile.content.flower.style.display = 'none';
+          profile.content.remember.style.display = 'block';
+        }
 
-          else if (profile.tabs.flower.classList.contains('selected')) {
-            profile.content.remember.style.display = 'none';
-            profile.content.flower.style.display = 'block';
-          }
-        }, 1);
+        else if (profile.tabs.flower.classList.contains('selected')) {
+          profile.content.remember.style.display = 'none';
+          profile.content.flower.style.display = 'block';
+        }
       }
     });
   }

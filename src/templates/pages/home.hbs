@@ -1,4 +1,13 @@
-<!-- {{> header}} -->
-<h2 class="title center">{{title}}</h2>
-<a href="/login">Connexion</a>
+{{> header}}
+<div class="home">
+  <div class="home__form-group">
+    <input type="text" name="search" id="search" placeholder="Rechercher un proche" value="">
+    <label for="search">
+      <img class="inline" src="src/images/icons/lock-icon.svg" alt="Lock icon" />
+    </label>
+  </div>
+  <div class="home__canvas-container">
+    <canvas id="home-canvas"></canvas>
+  </div>
+</div>
 <!-- {{> footer}} -->
