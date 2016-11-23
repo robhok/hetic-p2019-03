@@ -33,6 +33,11 @@ export class CanvasMosaic {
     this.initEvents();
   }
 
+  /**
+  * Function createFakeDatabase()
+  * fill database with existing items
+  */
+
   createFakeDatabase() {
     this.fakeData = [];
     this.dataKey = "fakeData";
@@ -40,14 +45,26 @@ export class CanvasMosaic {
     for (let i = 0; i < 200; i++) this.fakeData[i] = this.data[i % (this.data.length)];
   }
 
+  /**
+  * Function getRandomMargin()
+  * @return margin (inside blocks images)
+  */
+
   getRandomMargin() {
     let dif = this.blockSize - this.imgSize;
     return (1 + Math.floor(dif*Math.random()))-dif;
   }
 
+  /**
+  * Function search()
+  * filter data by name
+  * @param name (value inside the search input, name of persons)
+  */
+
   search(name) {
     if (name) this.dataKey = "filteredData";
-    let _filtered = this.fakeData.filter(profile => profile["name"].toLowerCase().lastIndexOf(name) != -1);
+    else this.dataKey = "data";
+    let _filtered = this.data.filter(profile => profile["name"].toLowerCase().lastIndexOf(name) != -1);
     if (_filtered.length !== this.filteredData.length || _filtered[0] !== this.filteredData[0] || _filtered[_filtered.length-1] !== this.filteredData[this.filteredData.length-1] ) {
       this.filteredData = _filtered;
       if (this.device === "desktop") {
@@ -60,6 +77,11 @@ export class CanvasMosaic {
       this.createCanvas();
     }
   }
+
+  /**
+  * Function createCanvas()
+  * draw all the canvas
+  */
 
   createCanvas() {
     this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -97,9 +119,21 @@ export class CanvasMosaic {
     }
   }
 
+  /**
+  * Function getProfileByCoords()
+  * return right coord depending of coords
+  * @param x, y (coordinates)
+  * @return profile;
+  */
+
   getProfileByCoords(x, y) {
     return this.coords.filter(coord => coord["x"] == x && coord["y"] == y);
   }
+
+  /**
+  * Function changeDirection()
+  * change direction of snail
+  */
 
   changeDirection() {
     let self = this;
@@ -119,6 +153,11 @@ export class CanvasMosaic {
     }
   }
 
+  /**
+  * Function moveSnail()
+  * move snail
+  */
+
   moveSnail() {
     let self = this;
     switch(this.direction) {
@@ -136,6 +175,11 @@ export class CanvasMosaic {
         break;
     }
   }
+
+  /**
+  * Function initEvents()
+  * init all events
+  */
 
   initEvents() {
     if (this.device === "desktop") {
@@ -174,6 +218,12 @@ export class CanvasMosaic {
     }
   }
 
+  /**
+  * Function handleTouchStart()
+  * action on touch for mobiles
+  * @param e (event)
+  */
+
   handleTouchStart(e) {
     this.mouse = "down";
     if (window.navigator.msPointerEnabled) {
@@ -185,6 +235,12 @@ export class CanvasMosaic {
 			this.curYPos = _coord[0].clientY;
 		}
   }
+
+  /**
+  * Function handleTouchMove()
+  * action on touch move for mobiles
+  * @param e (event)
+  */
 
   handleTouchMove(e) {
     if (this.mouse && this.mouse == "down") {
@@ -202,9 +258,21 @@ export class CanvasMosaic {
 		}
   }
 
+  /**
+  * Function handleTouchEnd()
+  * action on release touch for mobiles
+  * @param e (event)
+  */
+
   handleTouchEnd(e) {
     this.mouse = "up";
   }
+
+  /**
+  * Function relMouseCoords()
+  * get coords of canvas by mouse position
+  * @param e (event)
+  */
 
   relMouseCoords(e){
     let totalOffsetX = 0;
@@ -241,13 +309,12 @@ export class CanvasMosaic {
     // return coords;
   }
 
-  coordsCanvasToArray(x, y) {
-    // self.middle.x + (self.snailCoord.x*self.blockSize), self.middle.y + (self.snailCoord.y*self.blockSize)
+  /**
+  * Function coordsCanvasToArray()
+  * push to page
+  */
+
+  coordsCanvasToArray() {
     this.rout.pushPage('profile', {rout: this.rout, cache: this.cache, profile: this.data[0]});
-    console.log('push');
-    // let _coords = {
-    //   x: x,
-    //   y: y
-    // };
   }
 }
