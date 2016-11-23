@@ -12,7 +12,7 @@ export class HomePage {
         let canvas = document.querySelector('#home-canvas');
         self.inputSearch = document.querySelector('input#search');
         console.log(canvas);
-        self.canvas = new CanvasMosaic(canvas);
+        self.canvas = new CanvasMosaic(canvas, self.rout.device);
         self.inputSearch.addEventListener('input', () => {
           self.onChangeSearch();
         });
