@@ -9,7 +9,7 @@ export class ProfilePage {
     // LAUNCH FUNCTIONS THAT NEED DOM TO BE LOAD
     setTimeout(() => {
       self.tabs();
-      self.addFlower();
+      // self.addFlower();
     }, 100);
 
   }
