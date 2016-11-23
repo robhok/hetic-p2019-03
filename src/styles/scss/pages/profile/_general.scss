@@ -11,6 +11,7 @@
     width: 135px;
     height: 150px;
     margin: auto;
+    overflow: hidden;
   }
 
   &--image {
@@ -43,3 +44,4 @@
 
 @import 'tabs-content';
 @import 'tabs-actions';
+@import 'profile-post';

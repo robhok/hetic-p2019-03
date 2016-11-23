@@ -1,0 +1,20 @@
+.profile {
+  // PROFILE OF THE POSTER
+  .post__profile {
+    padding: 12px;
+    line-height: 18px;
+
+    img {
+      float: left;
+      margin-right: 15px;
+    }
+
+    &--name {
+      font-size: 16px;
+    }
+
+    &--date {
+      color: rgba(0,0,0,0.54);
+    }
+  }
+}

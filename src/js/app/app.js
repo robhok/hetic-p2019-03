@@ -15,7 +15,7 @@ export class MyApp {
   constructor(device) {
     this.device = device; //"mobile" for slides, desktop for fade
     this.cache = new CacheService();
-    // this.cache.clearCache();
+    this.cache.clearCache();
     this.rout = new Routing(this.device);
     this.user = this.getUser();
     let page = this.user ? 'home' : 'login';

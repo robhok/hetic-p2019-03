@@ -9,6 +9,7 @@ export class ProfilePage {
     // LAUNCH FUNCTIONS THAT NEED DOM TO BE LOAD
     setTimeout(() => {
       self.tabs();
+      self.addFlower();
     }, 100);
 
   }
@@ -46,5 +47,18 @@ export class ProfilePage {
         }
       }
     });
+  }
+
+  //  ADD A FLOWER INTO A REMEMBER
+  addFlower() {
+
+    let buttons = document.querySelectorAll('.add-flower')
+        flowers = document.querySelectorAll('.flowers img');
+
+    for (let button of buttons) {
+      button.addEventListener('click', (e) => {
+        console.log(e);
+      });
+    }
   }
 }
