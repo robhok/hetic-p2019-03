@@ -34,7 +34,9 @@ export class LoginPage {
       notificationMessage.innerHTML = 'Votre connexion a été un succès !';
       notification.style.transform = 'translate(0px)';
       notificationIcon.src = 'src/images/icons/success-icon.svg';
-
+      setTimeout(function() {
+        notification.style.transform = 'translateY(-50px)';
+      }, 2500);
 
       this.cache.setCache('user', user);
       this.rout.navToRoot('home', {rout: this.rout, cache: this.cache});
@@ -45,6 +47,9 @@ export class LoginPage {
       notificationMessage.innerHTML = 'Votre connexion a échouée, veuillez réessayer';
       notification.style.transform = 'translate(0px)';
       notificationIcon.src = 'src/images/icons/danger-icon.svg';
+      setTimeout(function() {
+        notification.style.transform = 'translateY(-50px)';
+      }, 2500);
     }
   }
 }
