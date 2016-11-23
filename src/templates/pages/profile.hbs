@@ -1,8 +1,12 @@
 {{> header}}
 <div class="profile">
 
+
   <!-- ADD A MESSAGE = ADD A FLOWER -->
   <div class="profile__add">
+    <div class="profile__add--input-upload">
+      <input type="file" name="image" value="">
+    </div>
 
     <!-- CONTAINER -->
     <div class="profile__add--container">
@@ -39,15 +43,15 @@
   <div class="text-center profile__infos">
     <div class="profile__infos--name">
       <p>
-        Laure Perrault
+        {{profile.name}}
       </p>
     </div>
     <div class="profile__infos--date text-left">
       <p>
-        28 juillet 1988
+        {{profile.dates.start}}
       </p>
       <p>
-        10 aout 2014
+        {{profile.dates.end}}
       </p>
     </div>
   </div>
@@ -59,7 +63,9 @@
     <div class="profile__action--remember">
       <div class="action">
       <button class="btn" type="button" name="button">
-        +
+        <a href="#">
+          +
+        </a>
       </button>
       </div>
       <div class="content">
@@ -76,7 +82,9 @@
       </div>
       <div class="action">
         <button class="btn" type="button" name="button">
-          <img src="src/images/icons/flower-shadow-icon.svg" alt="Fleur icon" />
+          <a href="#">
+            <img src="src/images/icons/flower-shadow-icon.svg" alt="Fleur icon" />
+          </a>
         </button>
       </div>
     </div>
@@ -101,22 +109,21 @@
   <!-- CONTENT TABS -->
   <div class="profile__content">
 
-    <!-- SEE REMEMEBERS -->
-    <div class="profile__content--remember">
-
-      <!-- POST REMEMBER N°1 -->
+  <!-- SEE REMEMEBERS -->
+  <div class="profile__content--remember">
+    {{#each allMemories as |_memory|}}
       <div class="post__remember">
 
         <!-- PROFILE OF POSTER -->
         <div class="post__profile">
-          <img width="41" src="src/images/profiles/lea.png" alt="Profile Lea" />
-          <span class="post__profile--name">Léa Derian</span><br>
-          <span class="post__profil--date">22 avril</span>
+          <img width="41" src="{{_memory.user_image}}" alt="Profile Lea" />
+          <span class="post__profile--name">{{_memory.user_name}}</span><br>
+          <span class="post__profil--date">{{_memory.date}}</span>
         </div>
 
         <!-- PICTURE -->
         <div class="post__remember--picture">
-          <img src="src/images/profiles/lea-friend.jpg" alt="Amis Léa" />
+          <img src="{{_memory.image}}" alt="Amis Léa" />
         </div>
 
         <!-- REMEMBER -->
@@ -127,176 +134,37 @@
             </button>
           </div>
           <div class="flowers">
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
+            {{#each _memory.m_flowers}}
+              <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
+            {{/each}}
           </div>
         </div>
       </div>
-
-
-      <!-- POST REMEMBER N°2 -->
-      <div class="post__remember">
-
-        <!-- PROFILE OF POSTER -->
-        <div class="post__profile">
-          <img width="41" src="src/images/profiles/marion.jpg" alt="Profile Lea" />
-          <span class="post__profile--name">Marion Sebag</span><br>
-          <span class="post__profile--date">18 avril</span>
-        </div>
-
-        <!-- PICTURE -->
-        <div class="post__remember--picture">
-          <img src="src/images/profiles/lea-friends-2.jpg" alt="Amis Léa" />
-        </div>
-
-        <!-- REMEMBER -->
-        <div class="post__remember--action">
-          <div class="add-flower">
-            <button type="button" class="btn" name="button">
-              <img src="src/images/icons/flower-add-icon.svg" alt="Fleur blanche" />
-            </button>
-          </div>
-          <div class="flowers">
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-            <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          </div>
-        </div>
-
-    </div>
-
-
-    <!-- POST REMEMBER N°3 -->
-    <div class="post__remember">
-
-      <!-- PROFILE OF POSTER -->
-      <div class="post__profile">
-        <img width="41" src="src/images/profiles/didier.jpg" alt="Profile Lea" />
-        <span class="post__profile--name">Didier Bachelier</span><br>
-        <span class="post__profile--date">12 avril</span>
-      </div>
-
-      <!-- PICTURE -->
-      <div class="post__remember--picture">
-        <img src="src/images/profiles/friends.jpg" alt="Amis Léa" />
-      </div>
-
-      <!-- REMEMBER -->
-      <div class="post__remember--action">
-        <div class="add-flower">
-          <button type="button" class="btn" name="button">
-            <img src="src/images/icons/flower-add-icon.svg" alt="Fleur blanche" />
-          </button>
-        </div>
-        <div class="flowers">
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-          <img src="src/images/icons/flower-icon.svg" alt="Fleur rouge" />
-        </div>
-      </div>
+    {{/each}}
 
   </div>
-
-  </div>
-
 
   <!-- SEE FLOWERS -->
   <div class="profile__content--flower">
 
+    {{#each allFlowers as |_flower|}}
     <!-- POST FLOWER N°1 -->
     <div class="post__flower">
 
       <!-- PROFILE OF POSTER -->
       <div class="post__profile">
-        <img width="41" src="src/images/profiles/didier.jpg" alt="Profile Lea" />
-        <span class="post__profile--name">Didier Bachelier</span><br>
-        <span class="post__profile--date">12 avril</span>
+        <img width="41" src="{{_flower.user_image}}" alt="Profile Lea" />
+        <span class="post__profile--name">{{_flower.user_name}}</span><br>
+        <span class="post__profile--date">{{_flower.date}}</span>
       </div>
 
       <!-- MESSAGE  -->
       <div class="post__flower--message">
-        Tu resteras à jamais gravée dans ma mémoire ma Laure !
-        Tu me manques tellement <3
+        {{_flower.content}}
       </div>
 
     </div>
-
-
-    <!-- POST FLOWER N°2 -->
-    <div class="post__flower">
-
-      <!-- PROFILE OF POSTER -->
-      <div class="post__profile">
-        <img width="41" src="src/images/profiles/didier.jpg" alt="Profile Lea" />
-        <span class="post__profile--name">Didier Bachelier</span><br>
-        <span class="post__profile--date">12 avril</span>
-      </div>
-
-      <!-- MESSAGE  -->
-      <div class="post__flower--message">
-        Tu étais bien plus qu’une amie, une personne fabuleuse
-        que je n’oublierais tout simplement jamais.
-      </div>
-
-    </div>
-
-
-    <!-- POST FLOWER N°3 -->
-    <div class="post__flower">
-
-      <!-- PROFILE OF POSTER -->
-      <div class="post__profile">
-        <img width="41" src="src/images/profiles/didier.jpg" alt="Profile Lea" />
-        <span class="post__profile--name">Didier Bachelier</span><br>
-        <span class="post__profile--date">12 avril</span>
-      </div>
-
-      <!-- MESSAGE  -->
-      <div class="post__flower--message">
-        Ma fille, tu es partie avant moi.. Je suis dévasté. Tu me manques tellement mon petit bébé, je te revoie encore quand tu était toute petite… Je t’aime Laure.
-      </div>
-
-    </div>
+    {{/each}}
 
   </div>
 

@@ -11,8 +11,7 @@ export class HomePage {
       setTimeout(() => {
         let canvas = document.querySelector('#home-canvas');
         self.inputSearch = document.querySelector('input#search');
-        console.log(canvas);
-        self.canvas = new CanvasMosaic(canvas, self.rout.device);
+        self.canvas = new CanvasMosaic(canvas, self.rout, self.cache);
         self.inputSearch.addEventListener('input', () => {
           self.onChangeSearch();
         });

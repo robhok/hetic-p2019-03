@@ -9,10 +9,14 @@
     z-index: 1;
     width: 100vw;
     height: 100vh;
-    display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
+    display: none;
+
+    &--input-upload {
+      display: none;
+    }
 
     // POPUP
     &--container {
@@ -21,6 +25,8 @@
       border-radius: 5px;
       position: relative;
       padding: 20px;
+      opacity: 0;
+      transition: opacity .5s ease;
     }
 
     // CROSS

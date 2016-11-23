@@ -119,6 +119,10 @@ export class Routing {
   * @param callback (callback after loading new page)
   */
 
+  reloadPage(infos) {
+    this.goToPage(this.page, infos, this.render.views[this.render.views.length-1]);
+  }
+
   goToPage(page, infos, outlet, callback) {
     /*
       This var is the connexion between the name of the page and the template. You can change the name or the template of a page, or even add new one
@@ -199,7 +203,7 @@ export class Routing {
             let splittedURL = this.href.split('/');
             let page = splittedURL[splittedURL.length-1];
             self.pushPage(page, {rout: self.currentNav.rout || {}, cache: self.currentNav.cache || {}});
-          } else {
+          } else if (href !== '#') {
             let page = href;
             self.navToRoot(page, {rout: self.currentNav.rout || {}, cache: self.currentNav.cache || {}});
           }
@@ -230,12 +234,7 @@ export class LogService {
   }
 
   login(email, password) {
-    let user = this.users.filter((user, key) => {
-      if (user["email"] == email && user["password"] == password) {
-        user.id = key;
-        return user;
-      };
-    });
+    let user = this.users.filter(user => user["email"] == email && user["password"] == password);
     return user[0] || null;
   }
 }

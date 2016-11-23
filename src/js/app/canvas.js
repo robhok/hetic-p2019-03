@@ -1,22 +1,24 @@
 import {database} from "./config";
 
 export class CanvasMosaic {
-  constructor(canvas, device = "mobile") {
+  constructor(canvas, rout, cache) {
+    this.rout = rout;
+    this.cache = cache;
     this.data = database["profiles"];
     this.dataKey = "data";
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
     this.container = this.canvas.parentNode;
-    this.device = device;
+    this.device = this.rout.device;
     this.coords = [];
-    if (device === "desktop") {
+    if (this.device === "desktop") {
       this.blockSize = 150;
       this.imgSize = 100;
       this.canvas.width = window.innerWidth*3;
       this.canvas.height = window.innerHeight*3;
       this.container.scrollLeft = this.canvas.width/3;
       this.container.scrollTop = this.canvas.height/3;
-    } else if (device === "mobile") {
+    } else if (this.device === "mobile") {
       this.blockSize = 110;
       this.imgSize = 70;
       this.canvas.width = window.innerWidth*5;
@@ -140,12 +142,11 @@ export class CanvasMosaic {
       let self = this;
       this.curXPos = 0;
       this.curYPos = 0;
-      this.canvas.addEventListener('click', this.relMouseCoords, false);
+      this.canvas.addEventListener('click', this.relMouseCoords.bind(this), false);
       this.container.addEventListener('mousedown', (e) => {
         self.mouse = "down";
         self.curYPos = e.pageY;
         self.curXPos = e.pageX;
-        console.log('down');
       });
 
       this.container.addEventListener('mousemove', (e) => {
@@ -154,14 +155,11 @@ export class CanvasMosaic {
           self.container.scrollTop += (self.curYPos - e.pageY);
           self.curXPos = e.pageX;
           self.curYPos = e.pageY;
-          console.log('moveDown');
         }
-        console.log('moveUp');
       });
 
       this.container.addEventListener('mouseup', (e) => {
         self.mouse = "up";
-        console.log('up');
       });
     } else if (this.device === "mobile") {
       this.canvas.addEventListener("touchend", this.relMouseCoords.bind(this), false);
@@ -216,12 +214,9 @@ export class CanvasMosaic {
     let currentElement = this.canvas;
     let clientX;
     let clientY;
-    console.log(this.device);
     if(this.device === "desktop") {
       clientX = e.pageX;
       clientY = e.pageY;
-      console.log(e);
-      console.log('e 1');
     } else if (this.device === "mobile") {
       if (window.navigator.msPointerEnabled) {
   			clientX = e.clientX;
@@ -232,8 +227,6 @@ export class CanvasMosaic {
   			clientY = _coord[0].clientY;
   		}
     }
-    console.log('coords');
-    console.log(clientX);
 
     do{
         totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
@@ -244,15 +237,14 @@ export class CanvasMosaic {
     canvasX = clientX - totalOffsetX;
     canvasY = clientY - totalOffsetY;
     let coords = {x:canvasX, y:canvasY};
-    console.log(coords);
-    this.coordsCanvasToArray(coords.x, coords.y);
+    this.coordsCanvasToArray();
     // return coords;
   }
 
   coordsCanvasToArray(x, y) {
     // self.middle.x + (self.snailCoord.x*self.blockSize), self.middle.y + (self.snailCoord.y*self.blockSize)
-    console.log((x-(this.canvas.width/2)));
-    console.log((y-(this.canvas.height/2)));
+    this.rout.pushPage('profile', {rout: this.rout, cache: this.cache, profile: this.data[0]});
+    console.log('push');
     // let _coords = {
     //   x: x,
     //   y: y
