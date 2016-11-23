@@ -1,0 +1,129 @@
+.profile {
+
+  /*
+  *** GENERAL
+  */
+
+  // ADD GLOBAL
+  &__add {
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    // POPUP
+    &--container {
+      width: 80%;
+      background: #eaeaea;
+      border-radius: 5px;
+      position: relative;
+      padding: 20px;
+    }
+
+    // CROSS
+    &--cross {
+
+      width: 35px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      position: absolute;
+        top: 0; right: 0;
+
+      div {
+
+        &:after,
+        &:before {
+          content: "";
+          position: absolute;
+          width: 20px;
+          height: 2px;
+          background: $color_black;
+          opacity: 0.55;
+        }
+
+        &:after {
+          transform: rotateZ(45deg);
+        }
+
+        &:before {
+          transform: rotateZ(-45deg);
+        }
+      }
+    }
+
+    // TEXTAREA
+    &--message {
+
+      textarea {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    // BUTTON SEND
+    &--button {
+      background: $color_white;
+      border-radius: 0 0 5px 5px;
+      width: 100%;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      padding-right: 15px;
+      justify-content: flex-end;
+      position: absolute;
+        bottom: 0; right: 0;
+    }
+  }
+
+  /*
+  *** MEDIA QUERIES
+  */
+
+  // GENRERAL FOR 0px --> 760PX DEVICES
+  @media screen and (max-width: 760px) {
+
+    &__add {
+
+      // CONTAINER
+      &--container {
+        height: 240px;
+      }
+
+      // TEXTAREA
+      &--message {
+
+        textarea {
+          height: 95px;
+        }
+      }
+    }
+  }
+
+  // GENRERAL FOR 760PX+ DEVICES
+  @media screen and (min-width: 760px) {
+
+    &__add {
+
+      // CONTAINER
+      &--container {
+        height: 410px;
+      }
+
+      // TEXTAREA
+      &--message {
+
+        label {
+          text-transform: uppercase;
+        }
+
+        textarea {
+          height: 290px;
+        }
+      }
+    }
+  }
+}
