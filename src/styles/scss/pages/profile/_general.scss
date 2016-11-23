@@ -43,7 +43,11 @@
 }
 
 // IMPORT PARTIALS OF PROFILE PAGE
-@import 'tabs-content-remember';
-@import 'tabs-content-flower';
-@import 'tabs-actions';
-@import 'profile-post';
+  // TABS
+    @import 'tabs-content-remember';
+    @import 'tabs-content-flower';
+    @import 'tabs-actions';
+  // PROFILE POST
+    @import 'profile-post';
+  // ADD A FLOWER = ADD A MESSAGE
+    @import 'add-message';

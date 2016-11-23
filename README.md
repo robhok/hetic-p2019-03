@@ -1,16 +1,22 @@
 # Forever
 
 Project for HETIC : front-end
+
 Virtual cemetery 🌚
 
 
 ## Group Member
 
 Arthur Chassin
+
 Ronan Fourreau
+
 Théo Bacholier
+
 Jules Belamy
+
 Robin Michay
+
 Clément Saulnier
 
 
