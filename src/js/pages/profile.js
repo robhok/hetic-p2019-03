@@ -30,23 +30,27 @@ export class ProfilePage {
     profile.content.flower = profile.content.querySelector('.profile__content--flower');
 
     // SWITCH SELECTED CLASS BETWEEN TAB
-    profile.tabs.addEventListener('click', (e) => {
-      if (!e.target.classList.contains('selected')) {
-        document.querySelector('.selected').classList.remove('selected');
-        e.target.classList.add('selected');
 
-        // DISPLAY OR HIDE TABS ACCORDING TO THE SELECTED TAB
-        if (profile.tabs.remember.classList.contains('selected')) {
-          profile.content.flower.style.display = 'none';
-          profile.content.remember.style.display = 'block';
-        }
+    // IF WINDOW >= 760 TABS DOESN'T WORK
+    if (window.innerWidth <= 760) {
+      profile.tabs.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('selected')) {
+          document.querySelector('.selected').classList.remove('selected');
+          e.target.classList.add('selected');
 
-        else if (profile.tabs.flower.classList.contains('selected')) {
-          profile.content.remember.style.display = 'none';
-          profile.content.flower.style.display = 'block';
+          // DISPLAY OR HIDE TABS ACCORDING TO THE SELECTED TAB
+          if (profile.tabs.remember.classList.contains('selected')) {
+            profile.content.flower.style.display = 'none';
+            profile.content.remember.style.display = 'block';
+          }
+
+          else if (profile.tabs.flower.classList.contains('selected')) {
+            profile.content.remember.style.display = 'none';
+            profile.content.flower.style.display = 'block';
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   //  ADD A FLOWER INTO A REMEMBER

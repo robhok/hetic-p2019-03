@@ -1,11 +1,39 @@
 .profile {
 
-  .post__flower {
+  /*
+  *** GENERAL
+  */
 
-    border-bottom: solid 1px #E0E0E0;
+  /*
+  *** MEDIA QUERIES
+  */
 
-    &--message {
-      padding: 14px;
+  // GENRERAL FOR 0px --> 760PX DEVICES
+  @media screen and (max-width: 760px) {
+    .post__flower {
+
+      border-bottom: solid 1px #E0E0E0;
+      width: 100%;
+
+      &--message {
+        padding: 14px;
+      }
+    }
+  }
+
+  // GENRERAL FOR 760PX+ DEVICES
+  @media screen and (min-width: 760px) {
+    &__content--flower {
+      width: 50%;
+      display: inline-block;
+
+      .post__flower {
+
+        &--message {
+          background: $color_white;
+          padding: 20px 34px;
+        }
+      }
     }
   }
 }

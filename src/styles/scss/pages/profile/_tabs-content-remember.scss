@@ -1,6 +1,10 @@
 .profile {
-  // TABS CONTENT
 
+  /*
+  *** GENERAL
+  */
+
+  // ACTIONS
   &__content {
     width: 100%;
 
@@ -8,29 +12,7 @@
 
       .post__remember {
 
-        overflow: hidden;
-        width: 100%;
-        border-top: solid 3px #E0E0E0;
-
-        // PROFILE OF THE POSTER
-        .post__profile {
-          background: $color_grey;
-        }
-
-        // PICTURE
-        &--picture {
-          width: 100%;
-          max-height: 300px;
-          overflow: hidden;
-
-          img {
-            width: 100%;
-          }
-        }
-
-        // ACTIONS
         &--action {
-
 
           display: flex;
           align-items: center;
@@ -71,13 +53,85 @@
                 top: 2px;
             }
           }
-
         }
       }
     }
+  }
 
-    &--flower {
-      display: none;
+
+  /*
+  *** MEDIA QUERIES
+  */
+
+  // GENRERAL FOR 0px --> 760PX DEVICES
+  @media screen and (max-width: 760px) {
+    // TABS CONTENT
+
+    &__content {
+      width: 100%;
+
+      &--remember {
+
+        .post__remember {
+
+          overflow: hidden;
+          width: 100%;
+          border-top: solid 3px #E0E0E0;
+
+          &:first-child {
+            border-top: none;
+          }
+
+          // PROFILE OF THE POSTER
+          .post__profile {
+            background: $color_grey;
+          }
+
+          // PICTURE
+          &--picture {
+            width: 100%;
+            max-height: 300px;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &--flower {
+        display: none;
+      }
     }
   }
+
+  // GENRERAL FOR 760PX+ DEVICES
+  @media screen and (min-width: 760px) {
+    &__content {
+      width: 100%;
+
+      &--remember {
+        width: 50%;
+        display: inline-block;
+        float: left;
+
+        .post__remember {
+          overflow: hidden;
+          border-right: solid 1px #EBEBEB;
+
+          &--picture {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
