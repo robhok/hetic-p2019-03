@@ -15,12 +15,12 @@ export class LoginPage {
     }, 100);
   }
 
+  // LOOP INTO USERS AND CHECK IF PASSWORD AND EMAIL MATCH AND THEN PUSH HOMEPAGE
   login() {
     let email = document.querySelector('input#email').value;
     let password = document.querySelector('input#password').value;
     self.log = new LogService();
     let user = self.log.login(email, password);
-    console.log(user);
     if (user) {
       this.cache.setCache('user', user);
       this.rout.navToRoot('home', {rout: this.rout, cache: this.cache});
