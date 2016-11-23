@@ -17,5 +17,11 @@
     height: 80%;
     position: absolute;
     top: 20%;
+    overflow: hidden;
+    #home-canvas {
+      // margin-left: -40%;
+      // margin-top: -40%;
+      // transform: translate3d(-40%, -25%, 0);
+    }
   }
 }

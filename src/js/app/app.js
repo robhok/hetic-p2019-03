@@ -17,13 +17,7 @@ export class MyApp {
     this.cache = new CacheService();
     this.cache.clearCache();
     this.rout = new Routing(this.device);
-    this.user = this.getUser();
-    let page = this.user ? 'home' : 'login';
-    this.rout.navToRoot(page, {rout: this.rout, cache: this.cache}); //YOU HAVE TO PASS THE ROUTER AND THE CACHE FOR THE FIRST VIEW (preferably using navToRoot)
-  }
-
-  getUser() {
-    return this.cache.getCache('user');
+    this.rout.navToRoot('home', {rout: this.rout, cache: this.cache}); //YOU HAVE TO PASS THE ROUTER AND THE CACHE FOR THE FIRST VIEW (preferably using navToRoot)
   }
 }
 
