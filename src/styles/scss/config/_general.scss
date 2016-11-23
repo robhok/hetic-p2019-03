@@ -67,7 +67,6 @@ render-view {
   float: left;
 }
 
-
 /*
 *** MEDIA QUERIES
 */
@@ -76,6 +75,14 @@ render-view {
 @media screen and (max-width: 760px) {
   render-view {
     padding: 14px 8px;
+  }
+
+  render-view.page-profile {
+    padding: 0;
+
+    .header__logo {
+      padding: 14px 8px;
+    }
   }
 
   .mobile {
@@ -105,6 +112,14 @@ render-view {
 @media screen and (min-width: 760px) {
   render-view {
     padding: 14px;
+  }
+
+  render-view.page-profile {
+    padding: 0;
+
+    .header__logo {
+      padding: 14px;
+    }
   }
 
   .mobile {

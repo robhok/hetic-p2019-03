@@ -19,19 +19,58 @@ header {
 
     text-align: center;
 
+    // LOGO HEADER
     .header__logo {
       margin-bottom: 14px;
 
       position: absolute;
         left: 0; right: 0;
     }
+
+    // PREVIOUS BUTTON
+    .header__previous {
+
+      position: absolute;
+      z-index: 1;
+
+      button {
+        height: 55px;
+        width: 45px;
+
+        img {
+          transform: rotateZ(180deg);
+        }
+      }
+      width: 45px;
+    }
   }
 }
+
 
 // HEADER FOR 760PX+ DEVICES
 @media screen and (min-width: 760px) {
   header {
+
+    // HEADER LOGO
     .header__logo {
+      left: 30px;
+    }
+
+    // PREVIOUS BUTTON
+    .header__previous {
+
+      position: absolute;
+      z-index: 1;
+
+      button {
+        height: 55px;
+        width: 45px;
+
+        img {
+          transform: rotateZ(180deg);
+        }
+      }
+      width: 45px;
     }
   }
 }

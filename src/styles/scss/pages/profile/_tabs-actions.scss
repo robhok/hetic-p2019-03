@@ -89,7 +89,7 @@
         text-align: center;
         line-height: 35px;
         cursor: pointer;
-        transition: 100ms all;
+        transition: 50ms all;
       }
 
       &--remember {
@@ -101,7 +101,7 @@
       }
 
       .selected {
-        border-bottom: inset 2px $color_white;
+        border-bottom: inset 2px $color_red;
       }
     }
   }
