@@ -10,6 +10,7 @@
     height: 80%;
     margin-top: 15px;
     overflow: hidden;
+    cursor: move;
     position: absolute;
       top: 20%;
   }
@@ -52,13 +53,67 @@
 
   // GENRERAL FOR 0px --> 760PX DEVICES
   @media screen and (max-width: 760px) {
+
+    // TAPBAR
     .tapbar {
       width: 100%;
-      position: absolute;
+      height: 78px;
+      background: $color_white;
+      border-top: solid 1px #E7E7E8;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      position: fixed;
         bottom: 0;
     }
 
+    // SEARCH BAR + ADD A CLOSE
+    &__form,
+    &__close {
+      width: 50%;
+      height: 100%;
+    }
+
+    // SEARCH BAR
+    &__form {
+      width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--search {
+        width: 150px;
+        font-size: 14px !important;
+      }
+    }
+
+    // CLOSE
+    &__close {
+
+      border-right: solid 1px #E7E7E8;
+
+      &--container {
+
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+          bottom: 10px;
+
+        button {
+          font-size: 12px;
+        }
+      }
+    }
+
+    // CANVAS
+    .home__canvas {
+      position: absolute;
+        top: 10%;
+    }
   }
+
 
   // GENRERAL FOR 760PX+ DEVICES
   @media screen and (min-width: 760px) {
@@ -81,6 +136,13 @@
         width: 230px;
         font-size: 20px;
       }
+    }
+
+    // ADD A CLOSE
+    &__close {
+      position: relative;
+        top: 20px;
+        right: 45px;
     }
   }
 

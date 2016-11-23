@@ -78,7 +78,8 @@ render-view {
     padding: 14px 8px;
   }
 
-  render-view.page-profile {
+  render-view.page-profile,
+  render-view.page-home {
     padding: 0;
 
     .header__logo {
@@ -116,7 +117,8 @@ render-view {
     padding: 14px;
   }
 
-  render-view.page-profile {
+  render-view.page-profile,
+  render-view.page-home {
     padding: 0;
 
     .header__logo {
