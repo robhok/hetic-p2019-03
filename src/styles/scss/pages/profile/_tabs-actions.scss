@@ -21,6 +21,7 @@
 
   // GENRERAL FOR 0px --> 760PX DEVICES
   @media screen and (max-width: 760px) {
+
     &__action {
 
       width: 100%;
@@ -74,7 +75,6 @@
     }
 
     // TABS
-
     &__tabs {
 
       box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.1);

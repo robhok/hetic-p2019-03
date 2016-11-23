@@ -53,6 +53,7 @@
 
   // GENRERAL FOR 0px --> 760PX DEVICES
   @media screen and (max-width: 760px) {
+
     .login__form {
 
       &--group {
@@ -71,6 +72,7 @@
 
   // FOR 760PX+ DEVICES
   @media screen and (min-width: 760px) {
+    
     .login__form {
 
       padding-top: 100px;
@@ -95,5 +97,4 @@
       }
     }
   }
-
 }

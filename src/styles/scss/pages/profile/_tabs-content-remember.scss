@@ -10,8 +10,10 @@
 
     &--remember {
 
+      // REMEMBER POST
       .post__remember {
 
+        // ACTION
         &--action {
 
           display: flex;
@@ -39,6 +41,7 @@
             }
           }
 
+          // FLOWERS OF REMEMEBER POST
           .flowers {
             width: 1000%;
             height: 100%;
@@ -65,8 +68,8 @@
 
   // GENRERAL FOR 0px --> 760PX DEVICES
   @media screen and (max-width: 760px) {
-    // TABS CONTENT
 
+    // TABS CONTENT
     &__content {
       width: 100%;
 
@@ -108,6 +111,8 @@
 
   // GENRERAL FOR 760PX+ DEVICES
   @media screen and (min-width: 760px) {
+
+    // TABS CONTENT
     &__content {
       width: 100%;
 
@@ -133,5 +138,4 @@
       }
     }
   }
-
 }

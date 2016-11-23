@@ -73,6 +73,7 @@ render-view {
 
 // GENRERAL FOR 0px --> 760PX DEVICES
 @media screen and (max-width: 760px) {
+
   render-view {
     padding: 14px 8px;
   }
@@ -110,6 +111,7 @@ render-view {
 
 // GENRERAL FOR 760PX+ DEVICES
 @media screen and (min-width: 760px) {
+
   render-view {
     padding: 14px;
   }
