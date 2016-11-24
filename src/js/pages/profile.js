@@ -6,15 +6,12 @@ export class ProfilePage {
     var self = this;
     Object.assign(this, navParams);
     this.user = this.getUser();
-    console.log(this.profile);
     this.memoriesAdded = JSON.parse(this.cache.getCache('memories_added')) || [];
     this.flowersAdded = JSON.parse(this.cache.getCache('flowers_added')) || [];
     this.allMemories = [...this.memoriesAdded, ...this.profile.memories];
     this.allFlowers = [...this.flowersAdded, ...this.profile.flowers];
-    console.log(this.allMemories);
     for (let memory of this.allMemories) {
       let _user = this.getUserById(memory.user_id)[0];
-      console.log(_user);
       memory.user_name = _user.name;
       memory.user_image = _user.image;
     };
@@ -23,7 +20,6 @@ export class ProfilePage {
       flower.user_name = _flower.name;
       flower.user_image = _flower.image;
     };
-    console.log(this.allMemories);
 
     // LAUNCH FUNCTIONS THAT NEED DOM TO BE LOAD
     setTimeout(() => {
